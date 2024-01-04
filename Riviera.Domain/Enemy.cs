@@ -6,19 +6,16 @@ using System.Threading.Tasks;
 
 namespace Riviera.Domain
 {
-    public class Enemy
+    public class Enemy : SouledEntityBase
     {
-        public  int HP { get; set; }
-        public  string Name { get; set; } = "Enemy1";
-
-
 
         public static Enemy GenerateEnemy()
         {
             Enemy enemy = new()
             {
                 HP = 10,
-                Name = "Serpent"
+                Name = "Serpent",
+                Defense = 5
             };
 
             return enemy;

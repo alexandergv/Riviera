@@ -1,6 +1,6 @@
 ﻿using Riviera.Domain;
+using Riviera.Domain.Skills;
 using static Riviera.Domain.Helpers.MessageHelper;
-
 
 
 
@@ -8,21 +8,25 @@ Msg("Hello, welcome to riviera!", true);
 
 Msg("Enter your Name:");
 
+Console.Write("        ");
 string userName = Console.ReadLine() ?? "Player1";
 
 var player = new Player() 
 {
  HP = 20,
  Name = userName,
+ Attack = 2,
+ Defense = 3,
 };
 
-Msg("Battle!");
-Msg("An enemy appeared, press A to Attack!");
+// Starting player skill
+player.Skills.Add(SwordSlashSkill.GetSkill());
 
+Msg("Battle!");
 
 var battle = new BattleBase(player, Enemy.GenerateEnemy());
 
-var encounterResult = battle.InitializeBattle();
+var encounterResult = battle.BeginBattle();
 
 if(encounterResult)
 {

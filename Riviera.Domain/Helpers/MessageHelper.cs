@@ -8,17 +8,20 @@ namespace Riviera.Domain.Helpers
             if (string.IsNullOrWhiteSpace(msg))
                 throw new Exception("The message to log was Empty");
 
+            Console.WriteLine($"    ");
+
+
             Console.WriteLine($"    {msg}");
             if (wait)
             {
-                Console.WriteLine("Press enter to Continue |>");
+                Console.WriteLine("     Press enter to Continue |>");
                 Console.WriteLine("");
                 Console.WriteLine("");
 
 
                 while (!KeyPressed(ConsoleKey.Enter))
                 {
-                    Console.WriteLine("Key pressed is not Enter");
+                    Console.WriteLine("     Key pressed is not Enter");
                 }
                 Console.Clear();
 

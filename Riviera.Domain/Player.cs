@@ -1,9 +1,7 @@
 ﻿namespace Riviera.Domain
 {
-    public class Player
+    public class Player : SouledEntityBase
     {
-        public int HP { get; set; } = 10;
-        public  string Name { get; set; } = "Eduardo";
-
+        public List<ISkill> Skills { get; set; } = new List<ISkill>();
     }
 }

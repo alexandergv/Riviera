@@ -1,4 +1,6 @@
 ﻿using static Riviera.Domain.Helpers.MessageHelper;
+using static Riviera.Domain.Helpers.BattleHelper;
+
 
 namespace Riviera.Domain
 {
@@ -13,7 +15,7 @@ namespace Riviera.Domain
             _Enemy = enemy;
         }
 
-        public bool InitializeBattle()
+        public bool BeginBattle()
         {
             bool playerWin = false;
 
@@ -22,23 +24,26 @@ namespace Riviera.Domain
                 Console.Clear();
                 
                 Msg("Battle Initialized---------");
-                Msg($"{_Enemy.Name}'s HP: {_Enemy.HP}");
-                Msg($"{_Player.Name}'s HP: {_Player.HP}");
+                Msg($"{_Enemy.Name}'s HP: {(_Enemy.HP > 0 ? _Enemy.HP : 0)}");
+                Msg($"{_Player.Name}'s HP: {(_Player.HP > 0 ? _Player.HP : 0)}");
 
                 Msg("Your turn---------");
+                ShowPlayerSkills(_Player);
 
+                var skillUsed = CheckSkillUsed(_Player, Console.ReadKey());
 
-                if (KeyPressed(ConsoleKey.A)) 
+                if (skillUsed >= 0) 
                 {
-                    int damageDealt = 2;
+                    int damageDealt = GetDamageDealt(_Player, _Enemy, _Player.Skills[skillUsed]);
                     _Enemy.HP -= damageDealt;
 
 
                     Console.Clear();
                     Msg("Battle Initialized---------");
-                    Msg($"{_Enemy.Name}'s HP: {_Enemy.HP}");
-                    Msg($"{_Player.Name}'s HP: {_Player.HP}"); 
+                    Msg($"{_Enemy.Name}'s HP: {(_Enemy.HP > 0 ? _Enemy.HP : 0)}");
+                    Msg($"{_Player.Name}'s HP: {(_Player.HP > 0 ? _Player.HP : 0)}");
 
+                    Msg($"Enemy {_Player.Name} used {_Player.Skills[skillUsed].Name}!");
                     Msg($"Enemy {_Enemy.Name} received -{damageDealt} damage!");
 
 
