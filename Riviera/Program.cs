@@ -1,4 +1,6 @@
-﻿using Riviera.Domain;
+﻿using Riviera;
+using Riviera.Domain;
+using Riviera.Domain.Location;
 using Riviera.Domain.Skills;
 using static Riviera.Domain.Helpers.MessageHelper;
 
@@ -22,16 +24,25 @@ var player = new Player()
 // Starting player skill
 player.Skills.Add(SwordSlashSkill.GetSkill());
 
-Msg("Battle!");
+Console.Clear();
+Console.WriteLine("        ");
 
-var battle = new BattleBase(player, Enemy.GenerateEnemy());
 
-var encounterResult = battle.BeginBattle();
+Renderer.RenderLocation(new FirstWorld(), player);
 
-if(encounterResult)
-{
-    Msg("Good Job winning your first battle!", true);
-} else
-{
-    Msg("Lost in the tutorial...", true);
-}
+//Console.ReadKey();
+
+
+//Msg("Battle!");
+
+//var battle = new BattleBase(player, Enemy.GenerateEnemy());
+
+//var encounterResult = battle.BeginBattle();
+
+//if(encounterResult)
+//{
+//    Msg("Good Job winning your first battle!", true);
+//} else
+//{
+//    Msg("Lost in the tutorial...", true);
+//}

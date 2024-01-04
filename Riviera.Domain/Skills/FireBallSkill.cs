@@ -12,6 +12,7 @@ namespace Riviera.Domain.Skills
         {
             this.Name = "FireBall";
             this.Power = 5;
+            this.ElementType = Element.ElementType.Fire;
         }
 
     }

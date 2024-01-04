@@ -12,6 +12,7 @@ namespace Riviera.Domain.Skills
         {
             this.Name = "Sword Slash";
             this.Power = 10;
+            this.ElementType = Element.ElementType.Melee;
         }
     }
 }
