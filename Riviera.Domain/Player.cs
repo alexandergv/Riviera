@@ -1,9 +1,9 @@
 ﻿namespace Riviera.Domain
 {
-    public static class Player
+    public class Player
     {
-        public static int HP { get; set; }
-        public static string Name { get; set; } = "Eduardo";
+        public int HP { get; set; } = 10;
+        public  string Name { get; set; } = "Eduardo";
 
     }
 }
