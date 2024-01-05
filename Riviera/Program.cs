@@ -28,7 +28,10 @@ Console.Clear();
 Console.WriteLine("        ");
 
 
-Renderer.RenderLocation(new FirstWorld(), player);
+while (true)
+{
+    Renderer.RenderLocation(new FirstWorld());
+}
 
 //Console.ReadKey();
 

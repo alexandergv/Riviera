@@ -1,14 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Riviera.Domain.Events;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Riviera.Domain
 {
     public abstract class LocationBase
     {
-        public int Width { get; set; }
-        public int Height { get; set; }
+        private int _Width { get; set; }
+        private int _Height { get; set; }
+        public string  GotoMessage { get; set; }
+        public string  HeaderMessage { get; set; }
+        public bool CanEncounterEnemies { get; set; } = false;
+        public List<LocationBase> Choices { get; set; } = new List<LocationBase>();
+        public List<LocationEvent> LocationEvents { get; set; } = new List<LocationEvent> { };
+        public StringBuilder LocationImage { get; set; } = new StringBuilder();
     }
 }

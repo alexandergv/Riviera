@@ -28,7 +28,7 @@ namespace Riviera.Domain.Helpers
             if (!int.TryParse(key.KeyChar.ToString(), out int keyNumber))
                 return result;
 
-            if (player.Skills.Count >= keyNumber && player.Skills[keyNumber] != null)
+            if ((player.Skills.Count - 1) >= keyNumber && player.Skills[keyNumber] != null)
                 result = keyNumber;
 
             return result;
