@@ -19,10 +19,16 @@ namespace Riviera.Domain
         {
             bool playerWin = false;
 
+
+            Console.Clear();
+
+            Msg("Enemy Encountered!---------");
+
             while (_Enemy.HP > 0 == _Player.HP > 0)
             {
+                Thread.Sleep(1500);
                 Console.Clear();
-                
+
                 Msg("Battle Initialized---------");
                 Msg($"{_Enemy.Name}'s HP: {(_Enemy.HP > 0 ? _Enemy.HP : 0)}");
                 Msg($"{_Player.Name}'s HP: {(_Player.HP > 0 ? _Player.HP : 0)}");

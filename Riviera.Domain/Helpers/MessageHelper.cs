@@ -39,5 +39,13 @@ namespace Riviera.Domain.Helpers
 
            return wasPressed;
         }
+
+        //public static void ShowCenteredMsg(string msg)
+        //{
+        //    if (string.IsNullOrWhiteSpace(msg))
+        //        throw new Exception("The message to log was Empty");
+
+
+        //}
     }
 }

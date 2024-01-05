@@ -30,7 +30,7 @@ Console.WriteLine("        ");
 
 while (true)
 {
-    Renderer.RenderLocation(new FirstWorld());
+    Renderer.RenderLocation(new FirstWorld(), player);
 }
 
 //Console.ReadKey();

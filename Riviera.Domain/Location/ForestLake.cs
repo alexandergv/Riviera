@@ -13,6 +13,7 @@ namespace Riviera.Domain.Location
             this.HeaderMessage = "You arrived to a medium-sized lake!, the water looks so clear :)";
             this.CanEncounterEnemies = true;
             this.GotoMessage = "You hear water flowing and feel a cold breeze from over there...";
+            this.EnemyRate = 100;
         }
     }
 }
