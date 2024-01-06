@@ -3,12 +3,22 @@ namespace Riviera.Domain.Helpers
 {
     public static class MessageHelper
     {
-        public static void Msg(string msg, bool wait = false)
+        public static void Msg(string msg, bool wait = false, dynamic options = null)
         {
             if (string.IsNullOrWhiteSpace(msg))
                 throw new Exception("The message to log was Empty");
 
-            Console.WriteLine($"    ");
+            if (options?.marginTop > 0)
+            {
+                for (int i = 0; i < options.marginTop; i++)
+                {
+                    Console.WriteLine($"    ");
+                }
+            } else
+            {
+                Console.WriteLine($"    ");
+            }
+
 
 
             Console.WriteLine($"    {msg}");

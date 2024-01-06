@@ -3,6 +3,7 @@ using Riviera.Domain.Helpers;
 using System.Text;
 using static Riviera.Domain.Helpers.MessageHelper;
 using static Riviera.Domain.Helpers.LocationHelper;
+using static Riviera.Domain.Helpers.MenuHelper;
 
 namespace Riviera
 {
@@ -23,7 +24,14 @@ namespace Riviera
             Console.WriteLine("");
 
             ShowLocationChoices(generalLocation.Choices);
-            var locationSelected = CheckLocationSelected(generalLocation, Console.ReadKey());
+
+            // Menu Choices
+            ConsoleKeyInfo keyPressed = Console.ReadKey();
+
+            if (IsOpenMenu(keyPressed, player))
+                return;
+
+            var locationSelected = CheckLocationSelected(generalLocation, keyPressed);
 
 
             if (locationSelected >= 0)
