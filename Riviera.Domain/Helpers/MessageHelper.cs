@@ -40,12 +40,31 @@ namespace Riviera.Domain.Helpers
            return wasPressed;
         }
 
-        //public static void ShowCenteredMsg(string msg)
-        //{
-        //    if (string.IsNullOrWhiteSpace(msg))
-        //        throw new Exception("The message to log was Empty");
+        public static void ShowCenteredMsg(string msg, ConsoleColor bgColor = ConsoleColor.Black, ConsoleColor txtColor = ConsoleColor.White)
+        {
+
+            Console.Clear();
+            Console.BackgroundColor = bgColor;
+
+            // Clear console so background color takes effect
+            Console.Clear();
+            Console.ForegroundColor = txtColor;
 
 
-        //}
+            if (string.IsNullOrWhiteSpace(msg))
+                throw new Exception("The message to log was Empty");
+
+            for (int i = 0; i < 9; i++)
+            {
+                Console.WriteLine($"    ");
+                if( i == 8)
+                     Console.WriteLine(new string(' ', 40)+msg);
+            }
+
+            Thread.Sleep(1500);
+            Console.ResetColor();
+
+            Console.Clear();
+        }
     }
 }

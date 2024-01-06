@@ -22,11 +22,10 @@ namespace Riviera.Domain
 
             Console.Clear();
 
-            Msg("Enemy Encountered!---------");
+            ShowCenteredMsg("Enemy Encountered!", ConsoleColor.Black, ConsoleColor.Red);
 
             while (_Enemy.HP > 0 == _Player.HP > 0)
             {
-                Thread.Sleep(1500);
                 Console.Clear();
 
                 Msg("Battle Initialized---------");
