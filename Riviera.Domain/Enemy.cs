@@ -15,5 +15,12 @@ namespace Riviera.Domain
 
             return enemy;
         } 
+
+        public int GiveExperience() 
+        {
+            int expGiven = 61;
+
+            return expGiven;
+        }
     }
 }

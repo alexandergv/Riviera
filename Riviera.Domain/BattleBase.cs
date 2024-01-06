@@ -65,8 +65,22 @@ namespace Riviera.Domain
 
             }
 
-            if(_Player.HP > 0 )
+            // Player Won
+            if(_Player.HP > 0 ) 
+            {
                 playerWin = true;
+                int expGained = _Enemy.GiveExperience();
+
+                bool LeveledUp = _Player.GainExp(expGained);
+
+                Msg($"{_Player.Name} gained {expGained} exp. points!");
+                if (LeveledUp)
+                {
+                    Msg($"{_Player.Name} Leveled Up to {_Player.Level}!");
+                }
+
+                Thread.Sleep(1500);
+            }
 
             return playerWin;
         }

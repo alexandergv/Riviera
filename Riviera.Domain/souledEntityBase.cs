@@ -8,5 +8,6 @@ namespace Riviera.Domain
         public int Defense { get; set; }
 
         public int Attack { get; set; }
+        public int Level { get; set; } = 1;
     }
 }
