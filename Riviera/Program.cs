@@ -16,9 +16,8 @@ string userName = "Edwar";
 
 
 
-var player = new Player() 
+var player = new Player(20) 
 {
- HP = 20,
  Name = userName.Trim(),
  Attack = 2,
  Defense = 3,

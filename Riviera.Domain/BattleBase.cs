@@ -6,7 +6,7 @@ namespace Riviera.Domain
 {
     public class BattleBase
     {
-        private Player _Player = new();
+        private Player _Player = new(1);
         private Enemy _Enemy = new();
 
         public BattleBase(Player player, Enemy enemy)
@@ -30,7 +30,7 @@ namespace Riviera.Domain
 
                 Msg("Battle Initialized---------");
                 Msg($"{_Enemy.Name}'s HP: {(_Enemy.HP > 0 ? _Enemy.HP : 0)}");
-                Msg($"{_Player.Name}'s HP: {(_Player.HP > 0 ? _Player.HP : 0)}");
+                Msg($"{_Player.Name}'s HP: {(_Player.CurrentHP > 0 ? _Player.CurrentHP : 0)}");
 
                 Msg("Your turn---------");
                 ShowPlayerSkills(_Player);
@@ -46,16 +46,16 @@ namespace Riviera.Domain
                     Console.Clear();
                     Msg("Battle Initialized---------");
                     Msg($"{_Enemy.Name}'s HP: {(_Enemy.HP > 0 ? _Enemy.HP : 0)}");
-                    Msg($"{_Player.Name}'s HP: {(_Player.HP > 0 ? _Player.HP : 0)}");
+                    Msg($"{_Player.Name}'s HP: {(_Player.CurrentHP > 0 ? _Player.CurrentHP : 0)}");
 
-                    Msg($"Enemy {_Player.Name} used {_Player.Skills[skillUsed].Name}!");
+                    Msg($"Player {_Player.Name} used {_Player.Skills[skillUsed].Name}!");
                     Msg($"Enemy {_Enemy.Name} received -{damageDealt} damage!");
 
 
 
                     Thread.Sleep(1000);
                     damageDealt = 1;
-                    _Player.HP -= damageDealt;
+                    _Player.CurrentHP -= damageDealt;
                     
                     Msg($"{_Player.Name} received -{damageDealt} damage!");
 

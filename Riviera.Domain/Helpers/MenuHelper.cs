@@ -30,7 +30,7 @@ namespace Riviera.Domain.Helpers
 
                 MessageHelper.Msg($"< {player.Name}'s Stats >", options: new Menu.MenuOptions(){ MarginTop = 2 });
                 MessageHelper.Msg($"Level: {player.Level}", options: new Menu.MenuOptions(){ MarginTop = 1 });
-                MessageHelper.Msg($"Health Points: {player.HP}", options: new Menu.MenuOptions(){ MarginTop = 1 });
+                MessageHelper.Msg($"Health Points: {player.CurrentHP}/{player.HP}", options: new Menu.MenuOptions(){ MarginTop = 1 });
                 MessageHelper.Msg($"Attack: {player.Attack}", options: new Menu.MenuOptions(){ MarginTop = 1 });
                 MessageHelper.Msg($"Defense: {player.Defense}", options: new Menu.MenuOptions(){ MarginTop = 1 });
                 

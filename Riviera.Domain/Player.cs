@@ -3,9 +3,16 @@
     public class Player : SouledEntityBase
     {
         public List<ISkill> Skills { get; set; } = new List<ISkill>();
+        public int CurrentHP { get; set; }
         public int ExperiencePoints { get; set; } = 0;
         public int PosX { get; set; } = 1;
         public int PosY { get; set; } = 1;
+
+        public Player(int hp)
+        {
+            this.HP = hp;
+            this.CurrentHP = hp;
+        }
 
 
         public void LevelUp()
