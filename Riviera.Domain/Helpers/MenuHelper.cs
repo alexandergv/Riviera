@@ -26,19 +26,15 @@ namespace Riviera.Domain.Helpers
             while (true)
             {
                 Console.Clear();
-                Console.ForegroundColor = ConsoleColor.Blue;
-                MessageHelper.Msg("x---- Menu ----x", options: new { marginTop = 4 });
-                Console.ResetColor();
+                MessageHelper.Msg("x ---- Menu ---- x", options: new Menu.MenuOptions(){ MarginTop = 4, TextColor = ConsoleColor.Blue });
 
-                MessageHelper.Msg($"< {player.Name}'s Stats >", options: new { marginTop = 2 });
-                MessageHelper.Msg($"Level: {player.Level}", options: new { marginTop = 1 });
-                MessageHelper.Msg($"Health Points: {player.HP}", options: new { marginTop = 1 });
-                MessageHelper.Msg($"Attack: {player.Attack}", options: new { marginTop = 1 });
-                MessageHelper.Msg($"Defense: {player.Defense}", options: new { marginTop = 1 });
+                MessageHelper.Msg($"< {player.Name}'s Stats >", options: new Menu.MenuOptions(){ MarginTop = 2 });
+                MessageHelper.Msg($"Level: {player.Level}", options: new Menu.MenuOptions(){ MarginTop = 1 });
+                MessageHelper.Msg($"Health Points: {player.HP}", options: new Menu.MenuOptions(){ MarginTop = 1 });
+                MessageHelper.Msg($"Attack: {player.Attack}", options: new Menu.MenuOptions(){ MarginTop = 1 });
+                MessageHelper.Msg($"Defense: {player.Defense}", options: new Menu.MenuOptions(){ MarginTop = 1 });
                 
-                Console.ForegroundColor = ConsoleColor.Red;
-                MessageHelper.Msg($"Skills", options: new { marginTop = 3 });
-                Console.ResetColor();
+                MessageHelper.Msg($"Skills", options: new Menu.MenuOptions(){ MarginTop = 3, TextColor = ConsoleColor.Red });
 
                 var skillsText = new StringBuilder();
 
@@ -48,7 +44,7 @@ namespace Riviera.Domain.Helpers
                 }
 
                 MessageHelper.Msg(skillsText.ToString());
-                MessageHelper.Msg($"Press X to get out of the Menu.", options: new { marginTop = 8 });
+                MessageHelper.Msg($"Press X to get out of the Menu.", options: new Menu.MenuOptions(){ MarginTop = 8 });
                 if (Console.ReadKey(false).Key == ConsoleKey.X)
                     break;
             }

@@ -1,16 +1,19 @@
 ﻿
+using Riviera.Domain.Menu;
+
 namespace Riviera.Domain.Helpers
 {
     public static class MessageHelper
     {
-        public static void Msg(string msg, bool wait = false, dynamic options = null)
+        public static void Msg(string msg, bool wait = false, MenuOptions options = null)
         {
+
             if (string.IsNullOrWhiteSpace(msg))
                 throw new Exception("The message to log was Empty");
 
-            if (options?.marginTop > 0)
+            if (options?.MarginTop > 0)
             {
-                for (int i = 0; i < options.marginTop; i++)
+                for (int i = 0; i < options.MarginTop; i++)
                 {
                     Console.WriteLine($"    ");
                 }
@@ -19,9 +22,17 @@ namespace Riviera.Domain.Helpers
                 Console.WriteLine($"    ");
             }
 
+            if(options?.TextColor != null)
+            {
+                Console.ForegroundColor = (ConsoleColor)options.TextColor;
+            }
 
 
             Console.WriteLine($"    {msg}");
+
+            if (options?.TextColor != null)
+                Console.ResetColor();    
+
             if (wait)
             {
                 Console.WriteLine("     Press enter to Continue |>");

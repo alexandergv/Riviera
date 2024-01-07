@@ -6,17 +6,20 @@ using static Riviera.Domain.Helpers.MessageHelper;
 
 
 
-Msg("Hello, welcome to riviera!", true);
+//Msg("Hello, welcome to riviera!", true);
 
-Msg("Enter your Name:");
+//Msg("Enter your Name:");
 
-Console.Write("        ");
-string userName = Console.ReadLine() ?? "Player1";
+//Console.Write("        ");
+//string userName = Console.ReadLine() ?? "Player1";
+string userName = "Edwar";
+
+
 
 var player = new Player() 
 {
  HP = 20,
- Name = userName,
+ Name = userName.Trim(),
  Attack = 2,
  Defense = 3,
 };
